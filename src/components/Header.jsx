@@ -21,7 +21,7 @@ const Header = () => {
       if (isOpen) {
         document.body.style.overflowY = "hidden";
       } else {
-        document.body.style.overflowY = "";
+        document.body.style.overflowY = "none";
       }
     };
     bodyFunction();
