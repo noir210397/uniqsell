@@ -49,7 +49,7 @@ const Header = () => {
             setIsOpen(!isOpen);
           }}
           className={`${
-            isOpen ? "transform-none" : "translate-x-full"
+            isOpen ? "transform-none" : "-translate-x-full"
           } absolute inset-0 md:translate-x-0 bg-black z-30 bg-opacity-20 md:bg-transparent md:bg-opacity-0 md:relative transition-transform  `}
         >
           <ul className="capitalize absolute md:relative inset-0 start-1/2 md:inset-auto  pt-[10vh] px-10 md:p-0 items-start  md:items-center flex flex-col md:flex-row bg-white ">
