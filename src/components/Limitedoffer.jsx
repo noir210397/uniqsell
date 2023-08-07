@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const Limitedoffer = () => {
-  const endDate = new Date("july 30 2023").getTime();
+  const endDate = new Date("december 30 2023").getTime();
   const [day, setDay] = useState(0);
   const [hour, setHour] = useState(0);
   const [minute, setMinute] = useState(0);
