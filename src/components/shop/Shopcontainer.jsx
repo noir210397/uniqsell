@@ -34,18 +34,15 @@ const Shopcontainer = () => {
   const selectFilter = (e) => {
     setFilterValue(e.target.value);
   };
-  const searchFunction = (e) => {
-    setsearchValue(e.target.value.trim());
-    let regex = new RegExp(searchValue, "gi");
+  const searchFunction = () => {
     let product = products.filter((item) => {
-      return regex.test(item.category) === true;
+      return item.productName.toLowerCase().includes(searchValue.toLowerCase());
     });
     setProductsValue(product);
   };
   const formFunction = (e) => {
     e.preventDefault();
-    // setsearchValue(e.target.value);
-    // let regex = new RegExp(searchValue, "gi");
+
     let name = searchValue.toLowerCase();
     let product = products.filter((item) => {
       return item.productName.toLowerCase().includes(name);
@@ -107,7 +104,10 @@ const Shopcontainer = () => {
               type="text"
               className="w-full h-full p-1 rounded-md"
               placeholder="Search by Product Name..."
-              onChange={searchFunction}
+              onChange={(e) => {
+                setsearchValue(e.target.value.trim());
+                searchFunction();
+              }}
               value={searchValue}
             />
             <button

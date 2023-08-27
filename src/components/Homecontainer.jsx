@@ -13,7 +13,10 @@ const Homecontainer = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero
           modi maiores quam quidem itaque.
         </p>
-        <Link className="p-2 bg-blue-950 text-white text-lg rounded my-4 capitalize">
+        <Link
+          to={`/shop`}
+          className="p-2 bg-blue-950 text-white text-lg rounded my-4 capitalize"
+        >
           shop now
         </Link>
       </div>

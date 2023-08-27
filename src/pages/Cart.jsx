@@ -6,19 +6,62 @@ import { useEffect, useState } from "react";
 import TableRow from "../components/TableRow";
 import { Link } from "react-router-dom";
 import { clearCart } from "../cartSlice";
+import { toast } from "react-toastify";
+
 // import products from "../assets/data/products";
 // import { Delete } from "@mui/icons-material";
 
 const Cart = () => {
-  // const cart = useSelector((state) => state.cart);
   const { cart, total } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-  // const [cartItems, setCartItems] = useState([]);
-  // useEffect(() => {
-  //   setCartItems(cart);
-  // }, [cart]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const checkCart = () => {
+    if (cart.length > 0) {
+      setModalOpen(!modalOpen);
+    } else {
+      toast.error("cart is empty");
+    }
+  };
+  useEffect(() => {
+    if (modalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [modalOpen]);
+
   return (
-    <div className="">
+    <div className="relative">
+      <div
+        className={`absolute inset-0 p-3 bg-black bg-opacity-25 z-[1000] flex justify-center items-center ${
+          modalOpen ? "" : "hidden"
+        }`}
+      >
+        <div className="bg-white flex-1 max-w-lg rounded  capitalize flex justify-center items-center p-2  flex-col">
+          <div className="my-2 text-center  font-extrabold text-blue-950">
+            are you sure you want to clear cart?
+          </div>
+          <div className="grid grid-cols-2 w-full gap-2 my-2">
+            <button
+              onClick={() => {
+                setModalOpen(false);
+                dispatch(clearCart());
+              }}
+              className=" bg-green-600 text-white p-2 rounded text-lg"
+            >
+              Yes
+            </button>
+            <button
+              onClick={() => {
+                setModalOpen(false);
+              }}
+              className=" bg-red-700 text-white p-2 rounded text-lg"
+            >
+              No
+            </button>
+          </div>
+        </div>
+      </div>
       <Header />
       <Titlecontainer value="shopping cart" />
       <div>
@@ -39,7 +82,7 @@ const Cart = () => {
         </div>
       </div>
       <div
-        className={`flex items-center justify-center flex-wrap ${
+        className={`flex  justify-center flex-wrap  ${
           cart.length === 0 ? "hidden" : ""
         } min-h-[50vh]`}
       >
@@ -66,18 +109,11 @@ const Cart = () => {
               {cart.map((item) => (
                 <TableRow {...item} key={item.id} />
               ))}
-              {/* <tr>
-              <td colSpan={2}>
-                <p className="border border-green-600">total</p>
-              </td>
-              <td colSpan={3}>
-                <span>$5000</span>
-              </td>
-            </tr> */}
             </tbody>
           </table>
         </div>
-        <div className="min-w-[300px] flex-1 md:flex-none py-4 px-2 max-w-lg md:px-4">
+        {/* <div className=""> */}
+        <div className="min-w-[300px] flex-1 md:flex-none py-4 px-2 max-w-lg md:px-4  ">
           <div className="flex items-center justify-between">
             <span>Subtotal</span>
             <span className="font-extrabold text-blue-950 px-1">${total}</span>
@@ -98,14 +134,13 @@ const Cart = () => {
             Continue Shopping
           </Link>
           <button
-            onClick={() => {
-              dispatch(clearCart());
-            }}
+            onClick={checkCart}
             className="block w-full p-2 bg-blue-950 text-white rounded-md my-2 text-center"
           >
             Clear Cart
           </button>
         </div>
+        {/* </div> */}
       </div>
 
       <Footer />

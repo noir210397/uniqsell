@@ -2,11 +2,11 @@ import { Add } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../cartSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Card = ({ productName, imgUrl, category, price, id }) => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   return (
     <motion.div
       className="flex-1 max-w-xs m-2 rounded-lg p-1 min-w-[200px] "
@@ -14,7 +14,13 @@ const Card = ({ productName, imgUrl, category, price, id }) => {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -300, opacity: 0 }}
     >
-      <motion.div className="" whileHover={{ scale: 1.08 }}>
+      <motion.div
+        onClick={() => {
+          navigate(`/shop/${productName.replaceAll(" ", "-")}-${id}`);
+        }}
+        className=""
+        whileHover={{ scale: 1.08 }}
+      >
         <img src={imgUrl} alt="" className="w-full object-cover" />
       </motion.div>
       <p className="text-blue-950 font-bold py-2">

@@ -7,7 +7,7 @@ const Checkout = () => {
   return (
     <div className="">
       <Header />
-      <div className="flex justify-center items-center flex-wrap p-2">
+      <div className="flex justify-center  flex-wrap p-2">
         <CheckoutForm />
         <CheckoutContainer />
       </div>

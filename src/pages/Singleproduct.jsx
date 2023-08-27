@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import products from "../assets/data/products";
 import Titlecontainer from "../components/Titlecontainer";
@@ -16,13 +16,17 @@ const Singleproduct = () => {
   const { id } = useParams();
   const [reviews, setReviews] = useState([]);
   const [likes, setLikes] = useState([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
+    const ProductId = Number(id.slice(length - 2));
+    let product = products.find((item) => {
+      return item.id - ProductId === 0;
+    });
     const getId = () => {
       const length = id.length;
       const realID = Number(id.slice(length - 2));
-      // console.log(realID);
-      // setStr(realID);
       const singleProduct = products.find((item) => item.id == realID);
       const category = singleProduct.category;
       if (category === "sofa" || category === "chair") {
@@ -43,9 +47,16 @@ const Singleproduct = () => {
       setItem(singleProduct);
       setReviews(singleProduct.reviews);
     };
-    getId();
-    // console.log(products);
+    if (product) {
+      getId();
+      setIsLoaded(true);
+    } else {
+      navigate(`/product-not-found`);
+    }
   }, [id]);
+  if (!isLoaded) {
+    return <div>loading...</div>;
+  }
   return (
     <div>
       <Header />
@@ -130,9 +141,9 @@ const Singleproduct = () => {
             <p className="text-gray-600">{item.description}</p>
           </div>
           <div className={`p-1 ${tab === "review" ? "block" : "hidden"}`}>
-            {reviews.map((review) => {
+            {reviews.map((review, index) => {
               return (
-                <div key={review.rating} className="px-2">
+                <div key={review.rating + `${index}x${index}`} className="px-2">
                   <p className="py-2 font-bold">
                     {review.name === undefined ? "John Doe" : `${review.name}`}
                   </p>

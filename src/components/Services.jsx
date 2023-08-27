@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 const Services = ({ head, icon, color }) => {
   return (
     <motion.div
-      className={`flex min-h-[80px] items-center justify-center rounded-md p-2 flex-1 mx-1 md:mx-3 min-w-[250px] my-2   ${
+      className={`flex min-h-[80px] items-center justify-center rounded-md p-2     ${
         color === "blue"
           ? "bg-blue-400"
           : color === "green"

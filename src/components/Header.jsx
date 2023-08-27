@@ -7,7 +7,7 @@ import {
   ShoppingBagOutlined,
 } from "@mui/icons-material";
 import { useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import image from "../assets/images/user-icon.png";
 import { motion } from "framer-motion";
 
@@ -15,6 +15,28 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { cartQuantity, saved } = useSelector((state) => state.cart);
   const [drawer, setDrawer] = useState(false);
+  const height = useRef();
+  // const [scrollPosition, setScrollPosition] = useState(0);
+  const [navColor, setNavColor] = useState(false);
+
+  // Function to update the scroll position
+  const updateScrollPosition = () => {
+    const currentPosition = document.documentElement.scrollTop;
+    // setScrollPosition(currentPosition);
+    let elementHeight = height.current.clientHeight;
+    if (currentPosition > elementHeight) {
+      setNavColor(true);
+    } else {
+      setNavColor(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", updateScrollPosition);
+    return () => {
+      // Clean up the event listener when the component unmounts
+      window.removeEventListener("scroll", updateScrollPosition);
+    };
+  }, []);
   // const [hover, setHover] = useState(false);
   useEffect(() => {
     const bodyFunction = () => {
@@ -39,9 +61,13 @@ const Header = () => {
       clearInterval(interval);
     };
   }, [drawer]);
+  // console.log(height.current.clientHeight);
 
   return (
-    <div className=" ">
+    <div
+      className={`sticky top-0  ${navColor ? "bg-cyan-200" : "bg-white"} z-50`}
+      ref={height}
+    >
       <nav className="flex justify-between px-4 py-2  items-center  ">
         <Logo />
         <div
@@ -49,10 +75,10 @@ const Header = () => {
             setIsOpen(!isOpen);
           }}
           className={`${
-            isOpen ? "transform-none" : "translate-x-full"
-          } absolute inset-0 md:translate-x-0 bg-black z-30 bg-opacity-20 md:bg-transparent md:bg-opacity-0 md:relative transition-transform  `}
+            isOpen ? "transform-none" : "-translate-x-full"
+          } fixed inset-0 md:translate-x-0 bg-black z-30 bg-opacity-20 md:bg-transparent md:bg-opacity-0 md:relative transition-transform  `}
         >
-          <ul className="capitalize absolute md:relative inset-0 start-1/2 md:inset-auto  pt-[10vh] px-10 md:p-0 items-start  md:items-center flex flex-col md:flex-row bg-white ">
+          <ul className="capitalize absolute md:relative inset-0 start-1/2 md:inset-auto  pt-[10vh] px-10 md:p-0 items-start  md:items-center flex flex-col md:flex-row bg-white md:bg-transparent ">
             <li className="px-2 hover:decoration-2 hover:decoration-blue-950 hover:underline md:py-0 py-4">
               <Link to={"/"}>home</Link>
             </li>

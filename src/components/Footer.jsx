@@ -7,21 +7,24 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="bg-blue-950 text-white">
-      <footer className="flex flex-wrap justify-start lg:justify-evenly p-2">
-        <div className=" max-w-xs mx-2">
-          <p className="text-xl font-extrabold py-3 text-center">Multimart</p>
+    <div className="bg-blue-950 text-white mt-4">
+      <footer className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5  p-2">
+        <div className="col-span-2  mx-2">
+          <p className="text-base md:text-lg font-extrabold py-3 text-center">
+            Multimart
+          </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi
-            deserunt placeat consequatur officiis dolores deleniti consectetur
-            impedit iusto minus aspernatur.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus,
+            necessitatibus? Non blanditiis sunt dicta, nostrum qui quo minima
+            est laudantium! Adipisci eveniet aspernatur ipsum porro minus omnis
+            doloribus hic veritatis?
           </p>
         </div>
-        <div className=" max-w-[200px] mx-2">
-          <p className="text-xl font-extrabold py-3 text-center">
+        <div className="  mx-2">
+          <p className="text-base md:text-lg font-extrabold py-3 ">
             Top Categories
           </p>
-          <ul>
+          <ul className="">
             <li className="hover:underline decoration-2 decoration-white">
               <Link>Mobile Phones</Link>
             </li>
@@ -36,11 +39,11 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className=" max-w-[200px] mx-2">
-          <p className="text-xl font-extrabold py-3 text-center">
+        <div className="  mx-2">
+          <p className="text-base md:text-lg font-extrabold py-3 ">
             Useful Links
           </p>
-          <ul>
+          <ul className="">
             <li className="hover:underline decoration-2 decoration-white">
               <Link>Shop</Link>
             </li>
@@ -55,26 +58,27 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className=" max-w-[200px] mx-2">
-          <p className="text-xl font-extrabold py-3 text-center">Contact</p>
-          <ul>
+        <div className="  mx-2">
+          <p className="text-base md:text-lg font-extrabold py-3 ">Contact</p>
+          <ul className="">
             <li className="hover:underline decoration-2 decoration-white">
               {/* <Link>Shop</Link> */}
-              <LocationOnOutlined />
+              {/* <LocationOnOutlined /> */}
               123 john stone
             </li>
             <li className="hover:underline decoration-2 decoration-white">
               {/* <Link>Cart</Link> */}
-              <MailOutlined />
+              {/* <MailOutlined /> */}
               tom@uniqsell.com
             </li>
             <li className="hover:underline decoration-2 decoration-white">
               {/* <Link>Login</Link> */}
-              <LocalPhoneOutlined />
+              {/* <LocalPhoneOutlined /> */}
               0908978372828
             </li>
           </ul>
         </div>
+        {/* </div> */}
       </footer>
     </div>
   );

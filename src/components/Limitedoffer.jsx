@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Limitedoffer = () => {
-  const endDate = new Date("july 30 2023").getTime();
+  const endDate = new Date("december 30 2023").getTime();
   const [day, setDay] = useState(0);
   const [hour, setHour] = useState(0);
   const [minute, setMinute] = useState(0);
   const [second, setSecond] = useState(0);
+  const navigate = useNavigate();
 
   const timeFunction = () => {
     let startDate = new Date().getTime();
@@ -60,7 +62,12 @@ const Limitedoffer = () => {
           <p>Seconds</p>
         </div>
       </div>
-      <button className="capitalize text-lg px-2 py-1 bg-white text-blue-950  rounded-lg">
+      <button
+        onClick={() => {
+          navigate(`/shop`);
+        }}
+        className="capitalize text-lg px-2 py-1 bg-white text-blue-950  rounded-lg"
+      >
         visit store
       </button>
     </div>

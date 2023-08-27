@@ -6,11 +6,17 @@ import Cart from "./pages/Cart";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Checkout from "./pages/Checkout";
+import ThankYou from "./pages/ThankYou";
+import ErrorPage from "./pages/ErrorPage";
+import ProductNotFound from "./pages/ProductNotFound";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="*" element={<ErrorPage />} />
+      <Route path="/product-not-found" element={<ProductNotFound />} />
+      <Route path="/order-placed" element={<ThankYou />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/sign-in" element={<Signin />} />
       <Route path="/sign-up" element={<Signup />} />
