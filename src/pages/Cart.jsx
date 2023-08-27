@@ -20,7 +20,7 @@ const Cart = () => {
   return (
     <div className="">
       <Header />
-      <Titlecontainer value="cart" />
+      <Titlecontainer value="shopping cart" />
       <div>
         <div
           className={`min-h-[50vh] flex items-center justify-center flex-col ${

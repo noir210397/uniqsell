@@ -41,7 +41,7 @@ const Header = () => {
   }, [drawer]);
 
   return (
-    <div className="">
+    <div className=" ">
       <nav className="flex justify-between px-4 py-2  items-center  ">
         <Logo />
         <div
