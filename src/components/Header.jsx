@@ -24,6 +24,7 @@ const Header = () => {
     const currentPosition = document.documentElement.scrollTop;
     // setScrollPosition(currentPosition);
     let elementHeight = height.current.clientHeight;
+    console.log(currentPosition)
     if (currentPosition > elementHeight) {
       setNavColor(true);
     } else {
