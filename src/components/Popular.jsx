@@ -19,7 +19,7 @@ const Popular = () => {
       <h1 className=" text-center font-extrabold text-2xl text-blue-950 p-2 ">
         Popular in Category
       </h1>
-      <div className=" max-w-5xl mx-auto   p-2  mygrid">
+      <div className=" max-w-5xl mx-auto   py-2 lg:px-2 px-5  mygrid">
         {product.map((item) => (
           <Card {...item} key={item.id} />
         ))}

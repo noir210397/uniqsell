@@ -127,7 +127,7 @@ const Shopcontainer = () => {
         >
           No items Found
         </div>
-        <div className=" max-w-5xl mx-auto   p-2  mb-2 mygrid">
+        <div className=" max-w-5xl mx-auto   py-2 lg:px-2 px-5  mb-2 mygrid">
           <AnimatePresence>
             {productsValue.map((item) => (
               <Card {...item} key={item.id} />

@@ -30,7 +30,7 @@ const data = [
 ];
 const Homeservices = () => {
   return (
-    <div className="grid lg:grid-cols-3 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5 py-5 px-3">
+    <div className="grid mygrid2 gap-5 py-5 px-3">
       {data.map((item) => (
         <Services key={item.head} {...item} />
       ))}

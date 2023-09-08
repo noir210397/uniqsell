@@ -210,7 +210,7 @@ const Singleproduct = () => {
         <h2 className="font-extrabold text-xl capitalize py-2 text-blue-950 ">
           you may also like
         </h2>
-        <div className="flex max-w-5xl mx-auto  flex-wrap p-2 justify-center md:justify-start">
+        <div className=" max-w-5xl mx-auto  mygrid  py-2 lg:px-2 px-5 ">
           {likes.map((item) => (
             <Card {...item} key={item.id} />
           ))}
