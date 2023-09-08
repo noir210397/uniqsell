@@ -28,7 +28,7 @@ const CheckoutContainer = () => {
         <div className="h-[2px] bg-gray-600"></div>
         <div className=" flex justify-between items-center">
           <span className="font-bold">Total:</span>
-          <span>$987</span>
+          <span>${Math.round(total + total * 0.03)}</span>
         </div>
         <button
           onClick={() => {
