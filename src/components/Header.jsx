@@ -24,7 +24,6 @@ const Header = () => {
     const currentPosition = document.documentElement.scrollTop;
     // setScrollPosition(currentPosition);
     let elementHeight = height.current.clientHeight;
-    console.log(currentPosition)
     if (currentPosition > elementHeight) {
       setNavColor(true);
     } else {
@@ -70,7 +69,7 @@ const Header = () => {
       ref={height}
     >
       <nav className="flex justify-between px-4 py-2  items-center  ">
-        {console.log("love")}
+        {/* {console.log("love")} */}
         <Logo />
         <div
           onClick={() => {

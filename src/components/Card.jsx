@@ -9,7 +9,7 @@ const Card = ({ productName, imgUrl, category, price, id }) => {
   const navigate = useNavigate();
   return (
     <motion.div
-      className="flex-1 max-w-xs m-2 rounded-lg p-1 min-w-[200px] "
+      className="   rounded-lg p-1  "
       initial={{ x: 300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -300, opacity: 0 }}

@@ -19,7 +19,7 @@ const Trending = () => {
       <h1 className=" text-center font-extrabold text-2xl text-blue-950 p-2 ">
         Trending Products
       </h1>
-      <div className="flex max-w-5xl mx-auto  flex-wrap p-2 justify-center md:justify-start">
+      <div className=" max-w-5xl mx-auto  p-2  mygrid">
         {product.map((item) => (
           <Card {...item} key={item.id} />
         ))}
