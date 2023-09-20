@@ -32,17 +32,18 @@ const Card = ({ productName, imgUrl, category, price, id }) => {
         </Link>
       </p>
       <p>{category}</p>
-      <div className="flex justify-between">
-        <span className="font-extrabold">${price}</span>
-        <button
-          className="bg-blue-950 h-8 w-8 flex items-center justify-center rounded-full p-1"
-          onClick={() => {
-            dispatch(addToCart(id));
-          }}
-        >
-          <Add className="text-white" />
-        </button>
-      </div>
+      {/* <div className="flex justify-between"> */}
+      <span className="font-extrabold">${price}</span>
+      <button
+        className="bg-blue-950 block w-full my-1 text-white mx-auto items-center justify-center rounded p-1"
+        onClick={() => {
+          dispatch(addToCart(id));
+        }}
+      >
+        Add To Cart
+        {/* <Add className="text-white" /> */}
+      </button>
+      {/* </div> */}
     </motion.div>
   );
 };
