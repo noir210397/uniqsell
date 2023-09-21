@@ -33,11 +33,11 @@ const Cart = () => {
   return (
     <div className="relative">
       <div
-        className={`absolute inset-0 p-3 bg-black bg-opacity-25 z-[1000] flex justify-center items-center ${
+        className={`absolute inset-0 p-3 bg-black bg-opacity-25 z-[1000]  ${
           modalOpen ? "" : "hidden"
         }`}
       >
-        <div className="bg-white flex-1 max-w-lg rounded  capitalize flex justify-center items-center p-2  flex-col">
+        <div className="bg-white  rounded absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 w-[60%] capitalize flex justify-center items-center p-2  flex-col">
           <div className="my-2 text-center  font-extrabold text-blue-950">
             are you sure you want to clear cart?
           </div>

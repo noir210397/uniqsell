@@ -13,6 +13,9 @@ const Card = ({ productName, imgUrl, category, price, id }) => {
       initial={{ x: 300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: -300, opacity: 0 }}
+      onClick={() => {
+        navigate(`/shop/${productName.replaceAll(" ", "-")}-${id}`);
+      }}
     >
       <motion.div
         onClick={() => {
@@ -36,7 +39,8 @@ const Card = ({ productName, imgUrl, category, price, id }) => {
       <span className="font-extrabold">${price}</span>
       <button
         className="bg-blue-950 block w-full my-1 text-white mx-auto items-center justify-center rounded p-1"
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
           dispatch(addToCart(id));
         }}
       >
